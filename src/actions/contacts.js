@@ -9,8 +9,3 @@ export const getContacts = () => async dispatch => {
         console.log(error.message);
     }
 }
-
-export const getContact = (id) => ({
-    type: "GET_CONTACT",
-    payload: id,
-})

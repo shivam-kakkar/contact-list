@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ListPage from './components/ListPage';
 import DetailPage from './components/DetailPage'
-import { useSelector, useDispatch } from 'react-redux';
 
 const App = () => {
   return (

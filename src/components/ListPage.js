@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 import { getContacts } from '../actions/contacts';
 import Contact from './Contact';
 import { Link } from 'react-router-dom';
-import { Container, ListGroup } from 'react-bootstrap';
+import { ListGroup, Spinner } from 'react-bootstrap';
 
 const ListPage = () => {
 
@@ -13,15 +12,6 @@ const ListPage = () => {
 
     useEffect(() => {
         dispatch(getContacts());
-    }, [])
-
-    useEffect(() => {
-        console.log(contacts);
-    }, [contacts])
-
-    useEffect(() => {
-        axios.get("https://randomuser.me/api/?results=10&seed=41768d5e17252a34")
-            .then(result => console.log(result));
     }, [])
 
     return (
@@ -37,9 +27,11 @@ const ListPage = () => {
                         ))}
                     </ListGroup>
             ) : (
-            <div>
-                <p>No Contacts</p>
-            </div>
+                <div className='spinnerDiv d-flex justify-content-center align-items-center'>
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </div>
             )}
         </div>
     )

@@ -16,7 +16,6 @@ const DetailPage = () => {
     }, [])
 
     useEffect(() => {
-        console.log(contacts);
         const currentContact = contacts.find(e => e.login.uuid === id);
         setContact(currentContact);
     }, [contacts])
@@ -26,7 +25,7 @@ const DetailPage = () => {
                 <p className='m-2'><Link to={"/"}><i class="bi bi-arrow-left"></i></Link></p>
                 <div className='d-flex flex-column w-100 p-5 justify-content-center align-items-center'>
                     <Image className='contactImage' roundedCircle src={contact.picture.large}></Image>
-                    <h1 style={{ marginTop: "15px" }} className='text-secondary'>{contact.name.first} {contact.name.last}</h1>
+                    <h1 className='text-secondary contactName'>{contact.name.first} {contact.name.last}</h1>
                 </div>
                 <ListGroup>
                     <ListGroup.Item><i class="bi bi-telephone myIcons"></i> {contact.phone}</ListGroup.Item>
